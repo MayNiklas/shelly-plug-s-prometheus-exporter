@@ -126,14 +126,14 @@
           shelly-exporter =
             let
               package =
-                { vendorSha256 ? "sha256-ZkhGkv3rJLDsDkpQ/cuA6PKt1pMjY5otzmjXxq+/bIk="
+                { vendorHash ? "sha256-ZkhGkv3rJLDsDkpQ/cuA6PKt1pMjY5otzmjXxq+/bIk="
                 , ...
                 }:
                 pkgs.buildGoModule rec {
                   pname = "shelly-exporter";
                   version = "1.0.6";
                   src = self;
-                  inherit vendorSha256;
+                  inherit vendorHash;
                   installCheckPhase = ''
                     runHook preCheck
                     $out/bin/shelly-exporter -h
